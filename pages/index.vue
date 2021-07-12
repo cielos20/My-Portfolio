@@ -1,18 +1,18 @@
 <template>
-  <v-app>
-    <v-app-bar app>
-      <v-app-bar-title>Rodrigo</v-app-bar-title>
-      <v-spacer></v-spacer>
-      <v-btn text>About</v-btn>
-      <v-btn text>Portfolio</v-btn>
-      <v-btn text>Skills</v-btn>
-      <v-btn text>Contacts</v-btn>
-      <v-btn text>Blog</v-btn>
-    </v-app-bar>
-    <v-main>
-      <v-container>
-
-      </v-container>
-    </v-main>
-  </v-app>
+  <v-main>
+    <v-container>
+      <v-row>
+        <v-col>
+          <p class="text-center text-h2 font-weight-bold">Hi,</p>
+          <p class="text-center text-h2 font-weight-bold">I'am Rodrigo</p>
+          <p class="text-center text-h2 font-weight-bold">Web Developer</p>
+          <p class="text-center text-h2 font-weight-bold">Web Designer</p>
+          <p class="text-center text-h2 font-weight-bold">Pizza lover</p>
+        </v-col>
+        <v-col>
+          <p>Column 2</p>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-main>
 </template>
