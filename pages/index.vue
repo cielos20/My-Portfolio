@@ -1,18 +1,22 @@
 <template>
-  <v-main>
+  <div>
     <v-container class="mt-16">
       <v-row justify="center" class="mt-16">
-        <p class="bold text-h4 text-center">Full-Stack Developer, Designer & Student</p>
+        <p class="font-weight-black text-lg-h2 text-sm-h4 text-center">Full-Stack Developer, Designer & Student</p>
         <p class="text-h6 text-center font-weight-medium">I design and code awesome web experiences, and I love what I do.</p>
       </v-row>
       <v-row align="center">
-        <v-img src="blog-bro.svg" width="400px" height="400px" contain></v-img>
+        <v-img src="blog-bro.svg" width="400px" height="400px" contain></v-img>        
+      </v-row>
+      <v-row justify="center" class="mb-16">
+        <v-icon color="grey">mdi-mouse-move-down</v-icon>
+        <p class="grey--text pt-4 pl-2">Keep scrolling...</p>
       </v-row>
     </v-container>
-    <!-- Need to figure out how to make it affect all of row -->
-    <v-container class="red" elevation="6" border="round">
+    <!-- Make a keep scrolling arrow and text animation like blinking-->
+    <v-container class="red" elevation="6" border="round" fluid>
       <v-row align="center" class="pt-16 pb-16 pl-16 pr-16">
-          <h2>I'm Rodrigo</h2>
+          <h2 class="pb-5">Hello. I'm Rodrigo. Nice to know you.</h2>
           <p>
             I have 2+ years of experience with programming in general, mostly with web stuff. I'm particulary fond of the back-end but I don't shy away from the front-end. My prefered language is JavaScript, but I also know Python, SQL, PHP and C++.
             <br>I'm fond of challenges and new technologies, so I like to try new stuff all the time, which allows me to broad my view towards other languages, frameworks and libraries and most importantly learn to adapt to new tasks.
@@ -21,5 +25,10 @@
           </p>
       </v-row>
     </v-container>
-  </v-main>
+    <v-container class="black">
+      <v-card>
+
+      </v-card>
+    </v-container>
+  </div>
 </template>
