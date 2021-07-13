@@ -1,17 +1,17 @@
 <template>
   <v-main>
-    <v-container>
-      <v-row align="center">
-        <p class="bold text-h3">Full-Stack Developer, Designer & Student</p>
-        <p class="text-h6">I design and code awesome web experiences, and I love what I do.</p>
+    <v-container class="mt-16">
+      <v-row justify="center" class="mt-16">
+        <p class="bold text-h4 text-center">Full-Stack Developer, Designer & Student</p>
+        <p class="text-h6 text-center font-weight-medium">I design and code awesome web experiences, and I love what I do.</p>
       </v-row>
       <v-row align="center">
-        <v-img src="blog-bro.svg"></v-img>
+        <v-img src="blog-bro.svg" width="400px" height="400px" contain></v-img>
       </v-row>
     </v-container>
-    <v-container class="mt-16">
-      <p class="text-center text-h3 text-decoration-underline font-weight-medium">About</p>
-      <v-row align="center" class="red--background">
+    <!-- Need to figure out how to make it affect all of row -->
+    <v-container class="red" elevation="6" border="round">
+      <v-row align="center" class="pt-16 pb-16 pl-16 pr-16">
           <h2>I'm Rodrigo</h2>
           <p>
             I have 2+ years of experience with programming in general, mostly with web stuff. I'm particulary fond of the back-end but I don't shy away from the front-end. My prefered language is JavaScript, but I also know Python, SQL, PHP and C++.
