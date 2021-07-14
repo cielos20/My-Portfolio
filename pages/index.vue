@@ -2,8 +2,8 @@
   <div>
     <v-container class="mt-16">
       <v-row justify="center" class="mt-16">
-        <p class="font-weight-black text-lg-h2 text-sm-h4 text-center">Full-Stack Developer, Designer & Student</p>
-        <p class="text-h6 text-center font-weight-medium">I design and code awesome web experiences, and I love what I do.</p>
+        <p class="font-weight-black text-lg-h2 text-sm-h4">Full-Stack Developer, Designer & Student</p>
+        <p class="text-h6 font-weight-medium">I design and code awesome web experiences, and I love what I do.</p>
       </v-row>
       <v-row align="center">
         <v-img src="blog-bro.svg" width="400px" height="400px" contain></v-img>        
@@ -14,7 +14,7 @@
       </v-row>
     </v-container>
     <!-- Make a keep scrolling arrow and text animation like blinking-->
-    <v-container class="red" elevation="6" border="round" fluid>
+    <v-container class="red" fluid>
       <v-row align="center" class="pt-16 pb-16 pl-16 pr-16">
           <h2 class="pb-5">Hello. I'm Rodrigo. Nice to know you.</h2>
           <p>
@@ -25,10 +25,53 @@
           </p>
       </v-row>
     </v-container>
-    <v-container class="black">
-      <v-card>
-
-      </v-card>
+    <v-container>
+      <v-row no-gutters>
+        <v-col cols="2">
+          <v-card elevation="6" min-height="350px">
+            <v-card-title>Back-end</v-card-title>
+            <v-card-text>
+              NodeJS<br>
+              Express<br>
+              Deno<br>
+              PHP<br>
+              Python<br>
+              Django<br>
+              Flask<br>
+              SQL<br>
+              Postgres<br>
+              Firebase<br>
+              MongoDB<br>
+            </v-card-text>
+          </v-card>
+        </v-col>
+        <v-col cols="2">
+          <v-card elevation="6" min-height="350px">
+            <v-card-title >Design</v-card-title>
+            <v-card-text>
+              Photoshop<br>
+              Ilustrator<br>
+              Figma<br>
+              XD<br>
+            </v-card-text>
+          </v-card>
+        </v-col>
+        <v-col cols="2">
+          <v-card elevation="6" min-height="350px">
+            <v-card-title>Front-end</v-card-title>
+            <v-card-text>
+              JavaScript<br>
+              HTML<br>
+              CSS<br>
+              SASS<br>
+              Tailwind<br>
+              React<br>
+              Vue<br>
+              Svelte<br>
+            </v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
     </v-container>
   </div>
 </template>
