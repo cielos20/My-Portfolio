@@ -1,3 +1,11 @@
+<script>
+  export default {
+    data: () => ({
+      overlay: false,
+    }),
+  }
+</script>
+
 <template>
   <div>
     <v-container class="mt-16 pt-lg-4">
@@ -32,7 +40,7 @@
       <v-row justify="center">
         <v-col cols="2">
           <v-card elevation="6" min-height="650px">
-            <v-icon large color="red" class="pl-16 ml-14 mt-8">
+            <v-icon x-large color="red" class="pl-16 ml-13 mt-8">
               mdi-nodejs
             </v-icon>
             <p class="font-weight-medium text-center text-h5 pt-4">Back-end</p>
@@ -58,7 +66,7 @@
         </v-col>
         <v-col cols="2">
           <v-card elevation="6" min-height="650px">
-            <v-icon large color="red" class="pl-16 ml-14 mt-8">
+            <v-icon x-large color="red" class="pl-16 ml-13 mt-8">
               mdi-pencil-ruler
             </v-icon>
             <p class="font-weight-medium text-center text-h5 pt-4">Design</p>
@@ -78,7 +86,7 @@
         </v-col>
         <v-col cols="2">
           <v-card elevation="6" min-height="650px">
-            <v-icon large color="red" class="pl-16 ml-14 mt-8">
+            <v-icon x-large color="red" class="pl-16 ml-13 mt-8">
               mdi-xml
             </v-icon>
             <p class="font-weight-medium text-center text-h5 pt-4">Front-end</p>
@@ -100,6 +108,26 @@
               Svelte<br>
             </p>
           </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
+    <v-container class="mt-16 pt-16">
+      <p class="text-center text-h3">My projects</p>
+      <p class="text-center">This a list of my projects. Like what you see try and contact me<span class="red--text"> here</span></p>
+      <v-row justify="center">
+        <v-col cols="3">
+          <v-hover>
+            <!-- Figure how to make it overlay on hover on the card -->
+            <v-card>
+               <v-img src="https://cdn.vuetifyjs.com/images/cards/forest-art.jpg"></v-img>
+               <v-fade-transition>
+                <v-overlay v-if="hover" absolute color="#036358">
+                  <p class="text-center">A portfolio website made in wordpress from scratch</p>
+                  <v-btn>See more...</v-btn>
+                </v-overlay>
+               </v-fade-transition>
+            </v-card>
+          </v-hover>
         </v-col>
       </v-row>
     </v-container>
