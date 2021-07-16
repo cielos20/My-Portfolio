@@ -1,42 +1,17 @@
 <template>
   <v-app>
-    <v-app-bar app>
-        <v-app-bar-title class="ml-lg-16 text-sm">Rodrigo</v-app-bar-title>
-        <v-spacer></v-spacer>
-        <v-btn text>About</v-btn>
-        <v-btn text>Skills</v-btn>
-        <v-btn text>Portfolio</v-btn>
-        <v-btn text>Contacts</v-btn>
+    <v-app-bar app elevate-on-scroll color="secondary">
+        <p class="text-h5 pt-3 ml-lg-16">Rodrigo</p>
+        <v-spacer ></v-spacer>
+        <v-btn text>Contact</v-btn>
         <v-btn text>Blog</v-btn>
+        <v-btn icon class="mr-16" :color="$vuetify.theme.dark ? 'yellow' : 'blue'" @click="$vuetify.theme.dark=!$vuetify.theme.dark" >
+          <v-icon  v-if="$vuetify.theme.dark===true">mdi-weather-sunny</v-icon>
+          <v-icon  v-if="$vuetify.theme.dark===false">mdi-weather-night</v-icon>
+        </v-btn>
     </v-app-bar>
     <Nuxt />
   </v-app>
 </template>
 
-<script>
-/* export default {
-  data () {
-    return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      items: [
-        {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/'
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
-        }
-      ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js'
-    }
-  }
-} */
-</script>
+

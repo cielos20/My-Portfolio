@@ -58,13 +58,24 @@ export default {
       dark: true,
       themes: {
         dark: {
-          primary: colors.blue.darken2,
+          primary: colors.red,
           accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
+          secondary: colors.red.darken3,
           info: colors.teal.lighten1,
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
-          success: colors.green.accent3
+          success: colors.green.accent3,
+          text: colors.shades.white
+        },
+        light: {
+          primary: colors.purple.darken1,
+          accent: colors.shades.black,
+          secondary: colors.grey.lighten5,
+          info: colors.cyan.darken3,
+          warning: colors.orange.lighten1,
+          error: colors.red.darken4,
+          success: colors.green.darken4,
+          text: colors.shades.white
         }
       }
     }
