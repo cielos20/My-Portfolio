@@ -1,11 +1,3 @@
-<script>
-  export default {
-    data: () => ({
-      overlay: false,
-    }),
-  }
-</script>
-
 <template>
   <div>
     <v-container class="mt-16 pt-lg-4">
@@ -114,22 +106,72 @@
     <v-container class="mt-16 pt-16">
       <p class="text-center text-h3">My projects</p>
       <p class="text-center">This a list of my projects. Like what you see try and contact me<span class="red--text"> here</span></p>
-      <v-row justify="center">
-        <v-col cols="3">
-          <v-hover>
+      <v-row class="mt-16 pt-16">
+        <v-col cols="4">
+          <v-hover v-slot="{hover}">
+            <!-- Figure how to make it overlay on hover on the card -->
+            <v-card >
+              <v-img src="pc-bro.jpg" max-height="320px">
+                <v-expand-transition>
+                  <div v-if="hover" class="d-flex transition-fast-in-fast-out red" style="height: 100%">
+                    <v-row align-content="center">
+                      <v-col cols="12">
+                      <p class="text-h3 pl-8">Absolutauge's newest portfolio website in wordpress</p>
+                      </v-col>
+                      <v-col cols="12">
+                        <v-btn outlined color="white" elevation="1" class="ml-8">See the website</v-btn>
+                      </v-col>
+                    </v-row>
+                  </div>
+                </v-expand-transition>
+              </v-img>
+            </v-card>
+          </v-hover>
+        </v-col>
+        <v-col cols="4">
+          <v-hover v-slot="{hover}">
             <!-- Figure how to make it overlay on hover on the card -->
             <v-card>
-               <v-img src="https://cdn.vuetifyjs.com/images/cards/forest-art.jpg"></v-img>
-               <v-fade-transition>
-                <v-overlay v-if="hover" absolute color="#036358">
-                  <p class="text-center">A portfolio website made in wordpress from scratch</p>
-                  <v-btn>See more...</v-btn>
-                </v-overlay>
-               </v-fade-transition>
+              <v-img src="soccer.jpg">
+                <v-expand-transition>
+                  <div v-if="hover" class="d-flex transition-fast-in-fast-out red" style="height: 100%;">
+                    <v-row align-content="center">
+                      <v-col cols="12">
+                      <p class="text-h3 pl-8">Vonchronoshaus a website about a dog breeder and it's puppies</p>
+                      </v-col>
+                      <v-col cols="12">
+                        <v-btn outlined color="white" elevation="1" class="ml-8">See the website</v-btn>
+                      </v-col>
+                    </v-row>
+                  </div>
+                </v-expand-transition>
+              </v-img>
+            </v-card>
+          </v-hover>
+        </v-col>
+        <v-col cols="4">
+          <v-hover v-slot="{hover}">
+            <!-- Figure how to make it overlay on hover on the card -->
+            <v-card>
+              <v-img src="https://cdn.vuetifyjs.com/images/cards/forest-art.jpg">
+                <v-expand-transition>
+                  <div v-if="hover" class="d-flex transition-fast-in-fast-out red" style="height: 100%">
+                    <v-row align-content="center">
+                      <v-col cols="12">
+                        <p class="text-h3 pl-8 pr-8">Florista de São Marcos a woocommerce flowershop</p>
+                      </v-col>
+                      <v-col cols="12">
+                        <v-btn outlined color="white" elevation="1" class="ml-8">See the website</v-btn>
+                      </v-col>
+                    </v-row>
+                  </div>
+                </v-expand-transition>
+              </v-img>
             </v-card>
           </v-hover>
         </v-col>
       </v-row>
     </v-container>
+    <!-- Make a footer with contact prob -->
   </div>
 </template>
