@@ -7,7 +7,7 @@
                 <v-col cols="10" sm="6" class="text-center pl-16 pr-16 text--text">
                     <p class="text-h4 font-weight-medium ">Like what you see? <br>Wanna have a chat? <br>I'll buy the coffee.</p>
                     <p class="text-h6 font-weight-light ">Have a job you would like to offer?</p>
-                    <v-btn color="white" outlined elevation="1" class="mb-16">Hire me</v-btn> 
+                    <v-btn color="white" outlined elevation="1" class="mb-16" href="/pages/contact.vue">Hire me</v-btn> 
                 </v-col>
                 <v-col cols="12" sm="6">
                     <v-row justify="center">
