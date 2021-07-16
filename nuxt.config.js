@@ -70,7 +70,7 @@ export default {
         light: {
           primary: colors.purple.darken1,
           accent: colors.shades.black,
-          secondary: colors.grey.lighten5,
+          secondary: colors.shades.white,
           info: colors.cyan.darken3,
           warning: colors.orange.lighten1,
           error: colors.red.darken4,

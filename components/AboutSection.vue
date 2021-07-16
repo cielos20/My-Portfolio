@@ -6,7 +6,7 @@
         <v-container class="primary text--text" fluid>
             <v-row justify="center" class="pt-16 pb-16 pl-16 pr-16">
                 <h2 class="pb-5">Hello. I'm Rodrigo. Nice to know you.</h2>
-                <p class="pl-16 pr-16">
+                <p class="pl-0 pr-0 pl-sm-16 pr-sm-16">
                     I have 2+ years of experience with programming in general, mostly with web stuff. I'm particulary fond of the back-end but I don't shy away from the front-end. My prefered language is JavaScript, but I also know Python, SQL, PHP and C++.
                     <br>I'm fond of challenges and new technologies, so I like to try new stuff all the time, which allows me to broad my view towards other languages, frameworks and libraries and most importantly learn to adapt to new tasks.
                     <br>I'm also experienced in using image editors like Photoshop and Ilustrator and UI/UX software like Adobe XD and Figma.

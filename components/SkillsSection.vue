@@ -4,12 +4,14 @@
     <v-img v-else-if="!$vuetify.theme.dark" src="wave-down-light.svg" height="200px"></v-img>
     <v-container style="margin-top: -200px">
       <v-row justify="center">
-        <v-col v-for="item in items" :key="item.title" cols="2">
+        <v-col v-for="item in items" :key="item.title" cols="10" lg="3" sm="4">
           <v-card elevation="6" min-height="650px">
-            <v-icon x-large color="primary" class="pl-16 ml-13 mt-8">
-              {{item.icon}}
-            </v-icon>
-            <p class="font-weight-medium text-center text-h5 pt-4">{{item.title}}</p>
+            <v-row justify="center">
+              <v-icon x-large color="primary" class="mt-8">
+                {{item.icon}}
+              </v-icon>
+            </v-row>
+            <p class="font-weight-medium text-center text-h5 pt-8">{{item.title}}</p>
             <p class="text-center pl-6 pr-6">{{item.titleText}}</p>
             <p class="text-center font-weight-medium text-h6 primary--text">{{item.subtitleOne}}</p>
             <p class="text-center font-weight-regular">
