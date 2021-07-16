@@ -8,14 +8,16 @@
         <p class="text-h6 font-weight-medium">I design and code awesome web experiences, and I love what I do.</p>
       </v-row>
       <v-row align="center">
-        <v-img src="blog-bro.svg" width="560px" height="560px" contain></v-img>        
+        <v-img v-if="$vuetify.theme.dark" src="blog-bro.svg" width="560px" height="560px" contain></v-img>        
+        <v-img v-else-if="!$vuetify.theme.dark" src="blog-bro-light.svg" width="560px" height="560px" contain></v-img>        
       </v-row>
       <v-row justify="center" class="mb-lg-16 pb-lg-16">
         <v-icon color="grey" class="blink">mdi-mouse-move-down</v-icon>
         <p class="grey--text pt-4 pl-2 blink">Keep scrolling...</p>
       </v-row>
     </v-container>
-    <v-img src="wave.svg" height="300px" class="mt-16" :fill="'primary'"></v-img>
+    <v-img v-if="$vuetify.theme.dark" src="wave.svg" height="300px" class="mt-16"></v-img>
+    <v-img v-else-if="!$vuetify.theme.dark" src="wave-light.svg" height="300px" class="mt-16"></v-img>
     <v-container class="primary text--text" fluid>
       <v-row justify="center" class="pt-16 pb-16 pl-16 pr-16">
           <h2 class="pb-5">Hello. I'm Rodrigo. Nice to know you.</h2>
@@ -28,7 +30,8 @@
       </v-row>
       <v-row class="primary mt-16 pt-16"></v-row>
     </v-container>
-    <v-img src="wave-down.svg" height="200px"></v-img>
+    <v-img v-if="$vuetify.theme.dark" src="wave-down.svg" height="200px"></v-img>
+    <v-img v-else-if="!$vuetify.theme.dark" src="wave-down-light.svg" height="200px"></v-img>
     <v-container style="margin-top: -200px">
       <v-row justify="center">
         <v-col cols="2">
@@ -174,7 +177,8 @@
       </v-row>
     </v-container>
     <!-- Make a footer with contact prob -->
-    <v-img src="wave.svg" height="300px" class="mt-16"></v-img>
+    <v-img v-if="$vuetify.theme.dark" src="wave.svg" height="300px" class="mt-16"></v-img>
+    <v-img v-else-if="!$vuetify.theme.dark" src="wave-light.svg" height="300px" class="mt-16"></v-img>
     <v-container class="primary" fluid>
       <v-row justify="center">
         <v-col cols="6" class="text-center pl-16 pr-16 text--text">

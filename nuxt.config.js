@@ -60,7 +60,7 @@ export default {
         dark: {
           primary: colors.red,
           accent: colors.grey.darken3,
-          secondary: colors.red.darken3,
+          secondary: colors.grey.darken3,
           info: colors.teal.lighten1,
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
