@@ -1,8 +1,8 @@
 <template>
-    <div class="mt-16 pt-16">
-        <p class="text-center text-h4 font-weight-medium">So you wanna meet up? I'm honored, please express yourself has much has you can. I'm all ears.</p>
+    <v-container class="mt-16 pt-16 mb-16 pb-16">
+        <p class="text-center text-h4 pl-sm-0 pl-5 pr-sm-0 pr-5 font-weight-medium">So you wanna meet up? I'm honored, please express yourself has much has you can. I'm all ears.</p>
         <v-row justify="center" class="mt-16">
-            <v-card elevation="6" class="p-6" height="650px" width="1000px">
+            <v-card elevation="6" height="650px" width="1000px">
                 <ValidationObserver ref="observer">
                     <v-form @submit.prevent="submit">
                         <v-row justify="center" class="mt-10">
@@ -28,14 +28,15 @@
                             <v-btn type="submit" outlined>Submit</v-btn>
                         </v-row>
                         <v-row justify="center" class="mt-6">
-                            <v-alert v-if="isValid === false" type="error">Invalid Form</v-alert>
-                            <v-alert v-if="isValid === true" type="success">Form submitted</v-alert>
+                            <!-- Need to figure out why it only happens once -->
+                            <v-alert v-if="isValid === false" type="error" dismissible outlined>Invalid Form</v-alert>
+                            <v-alert v-if="isValid === true" type="success" dismissible outlined>Form submitted</v-alert>
                         </v-row>
                     </v-form>
                 </ValidationObserver>
             </v-card>
         </v-row>
-    </div>
+    </v-container>
 </template>
 
 <script>
@@ -52,7 +53,7 @@
             name: '',
             message: '',
             email: '',
-            isValid: Boolean
+            isValid: ''
         }),
         methods: {
             submit() {
