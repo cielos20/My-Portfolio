@@ -1,14 +1,18 @@
 <template>
-    <v-row class="mt-16">
+    <div>
+    <v-img v-if="$vuetify.theme.dark" src="wave-down.svg" width="100%" height="300px"></v-img>
+    <v-img v-else-if="!$vuetify.theme.dark" src="wave-down-light.svg" width="100%" height="300px"></v-img>
+    <v-row class="mt-n16">
         <v-col>
-            <v-row class="mt-16" justify="center">
+            <v-row justify="center">
                 <h1>Blog Posts</h1>
+                <Search />
             </v-row>
             <v-row justify="center" class="mt-16">
                 <v-col v-for="article of articles" :key="article.slug" cols="3">
                     <v-card elevation="6" class="px-5 py-5">
                         <v-card-title class="primary--text">{{article.title}}</v-card-title>
-                        <v-card-title class="primary--text">{{article.createdAt}}</v-card-title>
+                        <v-card-title class="primary--text">{{formatDate(article.createdAt)}}</v-card-title>
                         <v-card-text>{{article.description}}</v-card-text>
                         <v-btn outlined color="primary" class="ml-3">
                             <NuxtLink :to="{name: 'blog-slug', params: {slug: article.slug}}" class="text-decoration-none" >Read more</NuxtLink>
@@ -18,6 +22,8 @@
             </v-row>
         </v-col>
     </v-row>
+    <FooterSection />
+    </div>
 </template>
 
 <script>
@@ -29,6 +35,12 @@ export default {
         .fetch()
     
         return {articles}
+    },
+    methods: {
+        formatDate(date) {
+            const options = {year: 'numeric', month: 'long', day: 'numeric'}
+            return new Date(date).toLocaleDateString('en', options)
+        }
     }
 }
 </script>

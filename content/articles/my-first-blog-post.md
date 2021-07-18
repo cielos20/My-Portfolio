@@ -12,4 +12,6 @@ Welcome to my first blog post ever!!!
 ## The beginning
 
 It was a bright sunny day in philadelphia but the guy was an asshole
-
+```html[my-first-blog-post.md]
+<p>Code styling is easy</p>
+```
