@@ -1,14 +1,14 @@
 <template>
-    <v-container class="mt-16 pt-16 mb-16">
+    <v-container v-resize="onResize" class="mt-16 pt-16 mb-16">
       <p class="text-center text-h3">My projects</p>
-      <p class="text-center">This a list of my projects. Like what you see try and contact me<span class="primary--text"> here</span></p>
+      <p class="text-center text-break">This a list of my projects. Like what you see try and contact me<span class="primary--text"> here</span></p>
       <v-row class="mt-16 pt-16" justify="center">
         <v-col v-for="item in items" :key="item.title" cols="10" md="4">
         <!-- Need to check how to trigger hover effects on mobile -->
-        <div v-if="isMobile() === true">
+        <div v-if="windowSize.x <= 700">
           <v-card>
               <v-img :src="item.img" height="320px"></v-img>
-                  <v-card-title class="pl-8 pr-8">{{item.title}}</v-card-title>
+                  <v-card-title class="text-break">{{item.title}}</v-card-title>
                   <v-col cols="12">
                     <v-btn outlined color="white" elevation="1" class="ml-8">See the website</v-btn>
                   </v-col> 
@@ -39,7 +39,7 @@
     </v-container>
 </template>
 
-<script lang="ts">
+<script>
  export default {
      data: () => ({
          items: [
@@ -58,17 +58,19 @@
                  title: "Florista de São Marcos a woocommerce flowershop",
                  link: '#'
              },
-         ]
+         ],
+         windowSize: {
+           x: 0,
+           y: 0
+         }
      }),
+     mounted() {
+       this.onResize()
+     },
      methods: {
-            isMobile() {
-                if( screen.width <= 760 ) {
-                    return true;
-                }
-                else {
-                    return false;
-                }
-            }
-        },
+          onResize() {
+            this.windowSize = {x: window.innerWidth, y: window.innerHeight}
+          }
+      },
  }
 </script>

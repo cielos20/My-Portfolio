@@ -12,13 +12,13 @@
               </v-icon>
             </v-row>
             <p class="font-weight-medium text-center text-h5 pt-8">{{item.title}}</p>
-            <p class="text-center pl-6 pr-6">{{item.titleText}}</p>
+            <p class="text-center pl-6 pr-6 text-break">{{item.titleText}}</p>
             <p class="text-center font-weight-medium text-h6 primary--text">{{item.subtitleOne}}</p>
-            <p class="text-center font-weight-regular">
+            <p class="text-center font-weight-regular text-break">
             {{item.subtitleTextOne}}
             </p>
             <p class="text-center font-weight-medium text-h6 primary--text">{{item.subtitleTwo}} </p>
-            <p class="text-center font-weight-regular pr-8 pl-8">
+            <p class="text-center font-weight-regular pr-8 pl-8 text-break">
               {{item.subtitleTextTwo}}
             </p>
           </v-card>
