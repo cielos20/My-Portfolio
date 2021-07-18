@@ -3,17 +3,17 @@
         <p class="text-center text-h4 pl-sm-0 pl-5 pr-sm-0 pr-5 font-weight-medium">So you wanna meet up? I'm honored, please express yourself has much has you can. I'm all ears.</p>
         <v-row justify="center" class="mt-16">
             <v-card elevation="6" height="650px" width="1000px">
-                <ValidationObserver ref="observer">
-                    <v-form @submit.prevent="submit">
+                <ValidationObserver ref="observer" v-slot="{handleSubmit}">
+                    <v-form @submit.prevent="handleSubmit(onSubmit)">
                         <v-row justify="center" class="mt-10">
                             <v-col cols="5">
-                                <ValidationProvider v-slot="{ errors, valid }" name="Name" rules="required|min:5|max:15">
+                                <ValidationProvider v-slot="{ errors, valid }" name="Name" rules="required|min:5|max:15|alpha_spaces">
                                     <v-text-field v-model="name" :error-messages="errors" :success="valid" type="text" label="Name" counter="15" outlined></v-text-field>
                                 </ValidationProvider>
                             </v-col>
                             <v-col cols="5">
-                                <ValidationProvider v-slot="{errors, valid}" name="Email" rules="required|email">
-                                    <v-text-field v-model="email" :error-messages="errors" :success="valid" type="text" label="Email" counter="15" outlined></v-text-field>
+                                <ValidationProvider v-slot="{errors, valid}" name="Email" rules="required|email|max:30">
+                                    <v-text-field v-model="email" :error-messages="errors" :success="valid" type="text" label="Email" counter="30" outlined></v-text-field>
                                 </ValidationProvider>
                             </v-col>
                         </v-row>
@@ -29,7 +29,6 @@
                         </v-row>
                         <v-row justify="center" class="mt-6">
                             <!-- Need to figure out why it only happens once -->
-                            <v-alert v-if="isValid === false" type="error" dismissible outlined>Invalid Form</v-alert>
                             <v-alert v-if="isValid === true" type="success" dismissible outlined>Form submitted</v-alert>
                         </v-row>
                     </v-form>
@@ -41,7 +40,7 @@
 
 <script>
     import {extend, ValidationProvider, ValidationObserver} from 'vee-validate'
-    import {email, required} from 'vee-validate/dist/rules'
+    import {alpha_spaces, email, required} from 'vee-validate/dist/rules'
 
     
     export default {
@@ -53,20 +52,20 @@
             name: '',
             message: '',
             email: '',
-            isValid: ''
+            isValid: false
         }),
         methods: {
-            submit() {
+            onSubmit() {
                 this.$refs.observer.validate().then(success => {
                     if(!success) {
-                        this.isValid = false;
+                        return 'Form could not be submited'
                     }
                     else {
-                        this.isValid = true;
                         this.name = this.email = this.message = '';
                         this.$nextTick(() => {
                             this.$refs.observer.reset();
                         });
+                        this.isValid = true
                     }
                 })
             }
@@ -89,10 +88,14 @@
     });
     extend('required', {
         ...required,
-        message: '{_field_} is invalid'
+        message: '{_field_} is required'
     })
     extend('email', {
         ...email,
-        message: '{_field_} is invalid'
+        message: 'Invalid email format'
+    })
+    extend('alpha_spaces', {
+        ...alpha_spaces,
+        message: '{_field_} only alphabetic characters are allowed'
     })
 </script>
