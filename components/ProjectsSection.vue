@@ -5,6 +5,16 @@
       <v-row class="mt-16 pt-16" justify="center">
         <v-col v-for="item in items" :key="item.title" cols="10" md="4">
         <!-- Need to check how to trigger hover effects on mobile -->
+        <div v-if="isMobile() === true">
+          <v-card>
+              <v-img :src="item.img" height="320px"></v-img>
+                  <v-card-title class="pl-8 pr-8">{{item.title}}</v-card-title>
+                  <v-col cols="12">
+                    <v-btn outlined color="white" elevation="1" class="ml-8">See the website</v-btn>
+                  </v-col> 
+            </v-card>
+        </div>
+        <div v-else>
           <v-hover v-slot="{hover}">
             <v-card >
               <v-img :src="item.img" height="320px">
@@ -23,6 +33,7 @@
               </v-img>
             </v-card>
           </v-hover>
+        </div>
         </v-col>
       </v-row>
     </v-container>
@@ -48,6 +59,16 @@
                  link: '#'
              },
          ]
-     })
+     }),
+     methods: {
+            isMobile() {
+                if( screen.width <= 760 ) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+        },
  }
 </script>
