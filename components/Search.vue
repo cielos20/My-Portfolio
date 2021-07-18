@@ -25,7 +25,9 @@
 <template>
     <div>
         <v-text-field v-model="searchQuery" append-icon="mdi-magnify" label="Search for the post" outlined></v-text-field>
-        <v-list v-if="articles.length" class="mt-n8">
+        <!-- Need to figure out how to trigger a tooltip on search -->
+        <v-tooltip v-if="articles.length" bottom>
+        <v-list >
             <v-list-item-group>
                 <v-list-item v-for="article of articles" :key="article.slug">
                     <v-list-item-content>
@@ -34,5 +36,6 @@
                 </v-list-item>
             </v-list-item-group>
         </v-list>
+        </v-tooltip>
     </div>
 </template>

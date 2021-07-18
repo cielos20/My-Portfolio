@@ -2,14 +2,19 @@
     <div>
     <v-img v-if="$vuetify.theme.dark" src="wave-down.svg" width="100%" height="300px"></v-img>
     <v-img v-else-if="!$vuetify.theme.dark" src="wave-down-light.svg" width="100%" height="300px"></v-img>
-    <v-row class="mt-n16">
+    <v-row class="mt-n10">
         <v-col>
             <v-row justify="center">
-                <h1>Blog Posts</h1>
-                <Search />
+                <v-col cols="7">
+                    <h1 class="text-left text-h3 font-weight-medium">Blog Posts</h1>
+                </v-col>
+                <v-col cols="3">
+                    <Search />
+                </v-col>
             </v-row>
-            <v-row justify="center" class="mt-16">
-                <v-col v-for="article of articles" :key="article.slug" cols="3">
+            <!-- Make some tabs to filter the content maybe or some tags -->
+            <v-row justify="center" class="mt-16 px-16">
+                <v-col v-for="article of articles" :key="article.slug" cols="4">
                     <v-card elevation="6" class="px-5 py-5">
                         <v-card-title class="primary--text">{{article.title}}</v-card-title>
                         <v-card-title class="primary--text">{{formatDate(article.createdAt)}}</v-card-title>
