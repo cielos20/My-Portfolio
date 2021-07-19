@@ -8,9 +8,6 @@
                 <v-col cols="7">
                     <h1 class="text-left text-h3 font-weight-medium">Blog Posts</h1>
                 </v-col>
-                <v-col cols="3">
-                    <Search />
-                </v-col>
             </v-row>
             <!-- Make some tabs to filter the content maybe or some tags -->
             <v-row justify="center" class="mt-16 px-16">

@@ -23,12 +23,14 @@
 
 
 <template>
-    <div>
-        <v-text-field v-model="searchQuery" append-icon="mdi-magnify" label="Search for the post" outlined></v-text-field>
+    <!-- Need to figure out how to make it appear on the bottom -->
+    <v-menu offset-y class="mt-16">
+      <template #activator="{on, attrs}">
+        <v-text-field v-model="searchQuery" v-bind="attrs" class="mt-6 mr-7" append-icon="mdi-magnify" label="Search for the post" dense outlined v-on="on"></v-text-field>
         <!-- Need to figure out how to trigger a tooltip on search -->
-        <v-tooltip v-if="articles.length" bottom>
-        <v-list >
-            <v-list-item-group>
+        <v-card  elevation="6">
+        <v-list v-if="articles.length" class="mt-16" >
+            <v-list-item-group class="mt-16">
                 <v-list-item v-for="article of articles" :key="article.slug">
                     <v-list-item-content>
                         <NuxtLink :to="{name: 'blog-slug', params: {slug: article.slug}}" class="text-decoration-none">{{article.title}}</NuxtLink>
@@ -36,6 +38,7 @@
                 </v-list-item>
             </v-list-item-group>
         </v-list>
-        </v-tooltip>
-    </div>
+        </v-card>
+      </template>
+    </v-menu>
 </template>

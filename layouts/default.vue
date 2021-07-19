@@ -5,6 +5,7 @@
           <nuxt-link class="text-decoration-none white--text" to="/">Rodrigo</nuxt-link>
         </p>
         <v-spacer ></v-spacer>
+        <Search class="mt-7 mr-16" />
         <v-btn link class="mr-2">
           <nuxt-link class="text-decoration-none" to="/contact">Contact</nuxt-link>
         </v-btn>
