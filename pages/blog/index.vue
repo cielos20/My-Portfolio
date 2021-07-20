@@ -5,19 +5,19 @@
     <v-row class="mt-n10">
         <v-col>
             <v-row justify="center">
-                <v-col cols="7">
-                    <h1 class="text-left text-h3 font-weight-medium">Blog Posts</h1>
+                <v-col cols="8" sm="7">
+                    <h1 class="text-left text-h3 font-weight-medium">The Blog</h1>
                 </v-col>
             </v-row>
             <!-- Make some tabs to filter the content maybe or some tags -->
-            <v-row justify="center" class="mt-16 px-16">
-                <v-col v-for="article of articles" :key="article.slug" cols="4">
+            <v-row justify="center" class="mt-16 px-sm-16 px-2">
+                <v-col v-for="article of articles" :key="article.slug" cols="12" sm="6" md="4">
                     <v-card elevation="6" class="px-5 py-5">
-                        <v-card-title class="primary--text">{{article.title}}</v-card-title>
+                        <v-card-title class="primary--text text-break">{{article.title}}</v-card-title>
                         <v-card-title class="primary--text">{{formatDate(article.createdAt)}}</v-card-title>
-                        <v-card-text>{{article.description}}</v-card-text>
+                        <v-card-text class="text-break">{{article.description}}</v-card-text>
                         <v-btn outlined color="primary" class="ml-3">
-                            <NuxtLink :to="{name: 'blog-slug', params: {slug: article.slug}}" class="text-decoration-none" >Read more</NuxtLink>
+                            <NuxtLink :to="{name: 'blog-slug', params: {slug: article.slug}}" class="text-decoration-none">Read more</NuxtLink>
                         </v-btn>
                     </v-card>
                 </v-col>

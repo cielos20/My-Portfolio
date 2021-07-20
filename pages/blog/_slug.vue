@@ -29,13 +29,13 @@ export default {
         <v-img v-else-if="!$vuetify.theme.dark" src="/wave-down-light.svg" width="100%" height="300px"></v-img>
         <article class="mt-16 text--text">
             <v-row justify="center" class="mt-16">
-                <v-col cols="7">
+                <v-col cols="12" sm="10">
                     <v-sheet elevation="6" class="px-10 py-10">
                         <v-img :src="article.img" :alt="article.alt" width="100%" height="350px" class="mb-16"></v-img>
                         <p class="text-h7 font-weight-light grey--text">{{formatDate(article.updatedAt)}}</p>
-                        <h1 class="text-h2 font-weight-medium primary--text">{{article.title}}</h1>       
-                        <nuxt-content :document="article" class="mt-16" />
-                        <prev-next :prev="prev" :next="next" />
+                        <h1 class="text-h2 font-weight-medium primary--text text-break">{{article.title}}</h1>       
+                        <nuxt-content :document="article" class="mt-16 text-break" />
+                        <prev-next :prev="prev" :next="next" class="mt-8" />
                     </v-sheet>
                 </v-col>
             </v-row>
