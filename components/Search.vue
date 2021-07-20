@@ -33,6 +33,7 @@
     >
       <v-list-item v-for="article of articles" :key="article.slug">
         <v-list-item-content>
+          <NuxtLink
             :to="{ name: 'blog-slug', params: { slug: article.slug } }"
             class="d-flex px-4 primary--text text-decoration-none"
           >
