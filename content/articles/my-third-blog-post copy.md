@@ -13,3 +13,6 @@ Welcome to my first blog post ever!!!
 
 It was a bright sunny day in philadelphia but the guy was an asshole
 
+```
+code
+```

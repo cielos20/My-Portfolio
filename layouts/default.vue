@@ -19,6 +19,7 @@
     </v-app-bar>
     <v-app-bar app elevate-on-scroll color="secondary" class="hidden-sm-and-up">
       <v-toolbar-title>Rodrigo</v-toolbar-title>
+      <Search class="mt-7 ml-16" />
       <v-spacer></v-spacer>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
     </v-app-bar>
