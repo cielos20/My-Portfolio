@@ -10,6 +10,7 @@
                 </v-col>
             </v-row>
             <!-- Make some tabs to filter the content maybe or some tags -->
+            <!-- Add storybook or strapi to make a db -->
             <v-row justify="center" class="mt-16 px-sm-16 px-2">
                 <v-col v-for="article of articles" :key="article.slug" cols="12" sm="6" md="4">
                     <v-card elevation="6" class="px-5 py-5">
