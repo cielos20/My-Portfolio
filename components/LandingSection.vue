@@ -1,5 +1,5 @@
 <template>
-  <v-container class="mt-16 pt-lg-4">
+  <v-container class="mt-10 pt-lg-4">
       <v-row justify="center" class="mt-sm-16 mt-0">
         <p class="font-weight-black text-lg-h2 text-sm-h3 text-h4 text-center">Full-Stack Developer, Designer & Student</p>
       </v-row>

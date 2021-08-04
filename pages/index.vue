@@ -4,7 +4,6 @@
     <AboutSection />
     <SkillsSection />
     <ProjectsSection />
-    <PostSection />
     <FooterSection />
   </div>
 </template>
