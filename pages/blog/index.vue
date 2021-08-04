@@ -30,6 +30,7 @@
 
 <script>
 /* Add a function that displays content based on a filtered category tag */
+/* Add a db to store my posts */
 export default {
     async asyncData({$content, params}) {
         const articles = await $content('articles')
