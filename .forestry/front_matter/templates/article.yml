@@ -1,0 +1,9 @@
+---
+label: Article
+hide_body: true
+fields:
+- name: javascript
+  type: tag_list
+  default: []
+  label: Javascript
+  description: Articles on Javascript
