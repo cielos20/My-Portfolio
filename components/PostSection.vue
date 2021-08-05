@@ -1,8 +1,7 @@
 <template>
-<!-- Style this better -->
     <div>
-         <h1 class="text-center text-h3 font-weight-medium">Latest posts</h1>
-        <v-row justify="center" class="mt-16 px-sm-16 px-2">
+         <h1 class="mt-16 text-center text-h3 font-weight-medium">Latest posts</h1>
+        <v-row justify="center" class="mt-10 px-sm-16 px-2">
             <v-col v-for="article of articles" :key="article.slug" cols="12" sm="6" md="4">
                 <v-card elevation="6" class="px-5 py-5">
                     <v-card-title class="primary--text text-break">{{article.title}}</v-card-title>
