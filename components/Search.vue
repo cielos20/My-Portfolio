@@ -30,11 +30,7 @@
 <template>
   <div>
     <v-text-field v-model="searchQuery" placeholder="Search Blog articles" class="d-block" full-width append-icon="mdi-magnify" outlined dense></v-text-field>
-    <v-list
-      v-if="articles.length"
-      class="mt-n6"
-      style="z-index: 10; position: absolute; width: auto; overflow: hidden; flex: 1 1 0%" elevation="8"
-    >
+    <v-list v-if="articles.length" class="mt-n6" style="z-index: 10; position: absolute; width: auto; overflow: hidden; flex: 1 1 0%" elevation="8">
       <v-list-item v-for="article of articles" :key="article.slug" @click="reset">
         <v-list-item-content>
           <NuxtLink

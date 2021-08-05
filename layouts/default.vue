@@ -4,7 +4,7 @@
         <p class="text-sm-h5 text-h6 pt-3 ml-lg-16">
           <nuxt-link class="text-decoration-none primary--text" to="/">Rodrigo</nuxt-link>
         </p>
-        <v-spacer ></v-spacer>
+        <v-spacer class="mr-4"></v-spacer>
         <Search class="mt-7 mr-16" />
         <v-btn link class="mr-2">
           <nuxt-link class="text-decoration-none" to="/contact">Contact</nuxt-link>
