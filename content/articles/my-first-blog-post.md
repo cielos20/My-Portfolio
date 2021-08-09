@@ -23,16 +23,20 @@ Now my background with this library (not a framework), was my first introduction
 At first I was dumbfounded, how can my special tech have this annoyance? I quickly opened a chrome tab and started googling and awestruck with the results, I wasn't the only one. Let me give you an example:
 
 To write a simple paragraph in plain html, you do it like this
+
 ```html
     <p>A paragraph</p>
 ```
+
 To write a simple paragraph in react, you can do it like this
+
 ```js
     ReactDOM.render(
         <p>A paragraph</p>,
         document.getElementById('index')
     )
 ```
+
 Woah what the hell happened, one tag suddendly transformed into a function with two parameters in it. Now this is for a simple paragrah now imagine when you try to write more complex stuff, and let's not even try to talk about state management.
 
 And before you start screaming, React has it's most wonderful uses but in my humble opinion it's not at it's best for something so simple has blog, well at least for what I'm trying to make. And I have a thing for the **DRY** principle, which stands for **D**on't **R**epeat **Y**ourself and all that boilerplate was really hurting that train of thought. So I went back to square one.
@@ -42,6 +46,7 @@ And before you start screaming, React has it's most wonderful uses but in my hum
 With a new requirement added I searched for a new framework. And it's two rivals Vue and Svelte looked more appealing than ever. I started with Vue, and I was really impressed not only with the docs but also the CLI and the community, it clearly showed the blood and tears commited to this product.
 
 Now Vue like Svelte and a HTML in JS approach, this means you can use javascript inside the html tags. In Vue's case you write inside a script block what data or methods you want to use in said file, for example:
+
 ```vue
      <template>
      	<p>{{greet}}</p>
@@ -61,9 +66,11 @@ Now Vue like Svelte and a HTML in JS approach, this means you can use javascript
         }
      </script>
 ```
+
 This will create two paragraphs one with the greet variable and the other with the upperString method, with greet has it's parameter. But the best of all is how the logic is cleanly organized, where all the functions will belong to the methods object and the variables will be part of the data object.
 
 In Svelte's case you can write the same thing above like so:
+
 ```js
     <script>
         let greet = "Hello World";
@@ -75,6 +82,9 @@ In Svelte's case you can write the same thing above like so:
     <p>{greet}</p>
     <p>{upperString(greet)}</p>
 ```
-It's even simpler since you don't even need a top level tag like template or div and the double curly braces that belongs to moustache.js library isn't also necessary and has the main example that svelte gives on their website, it's even more obvious that svelte fufills my requirement. And whith this I choose Svelte.
+
+It's even simpler since you don't even need a top level tag like template or div and the double curly braces that belongs to **moustache.js** library isn't also necessary and has the main example that svelte gives on their website, it's even more obvious that svelte fufills my requirement. And whith this I choose Svelte.
 
 ### The Second Version
+
+Starting with svelte is incredibly easy just install one of their templates, I use used their default one, and I used Typescript in this project which is also incredibly easy to do, just use the command **node scripts/setupTypescript.js** and you're good to go.
