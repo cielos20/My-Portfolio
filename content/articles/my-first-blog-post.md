@@ -23,18 +23,16 @@ Now my background with this library (not a framework), was my first introduction
 At first I was dumbfounded, how can my special tech have this annoyance? I quickly opened a chrome tab and started googling and awestruck with the results, I wasn't the only one. Let me give you an example:
 
 To write a simple paragraph in plain html, you do it like this
-
 ```html
-    <p>A paragraph</p>
+<p>A paragraph</p>
 ```
-
 To write a simple paragraph in react, you can do it like this
 
 ```js
-    ReactDOM.render(
-        <p>A paragraph</p>,
-        document.getElementById('index')
-    )
+ReactDOM.render(
+    <p>A paragraph</p>,
+    document.getElementById('index')
+)
 ```
 
 Woah what the hell happened, one tag suddendly transformed into a function with two parameters in it. Now this is for a simple paragrah now imagine when you try to write more complex stuff, and let's not even try to talk about state management.
@@ -48,23 +46,23 @@ With a new requirement added I searched for a new framework. And it's two rivals
 Now Vue like Svelte and a HTML in JS approach, this means you can use javascript inside the html tags. In Vue's case you write inside a script block what data or methods you want to use in said file, for example:
 
 ```vue
-     <template>
-     	<p>{{greet}}</p>
-        <p>{{upperString(greet)}}</p>
-     </template>
-     
-     <script>
-     	export default {
-        	data() {
-           		greet: 'Hello World!'
-            },
-            methods: {
-            	upperString(string) {
-                	return string.toUpperCase()
-                }
+<template>
+    <p>{{greet}}</p>
+    <p>{{upperString(greet)}}</p>
+</template>
+
+<script>
+    export default {
+        data() {
+            greet: 'Hello World!'
+        },
+        methods: {
+            upperString(string) {
+                return string.toUpperCase()
             }
         }
-     </script>
+    }
+</script>
 ```
 
 This will create two paragraphs one with the greet variable and the other with the upperString method, with greet has it's parameter. But the best of all is how the logic is cleanly organized, where all the functions will belong to the methods object and the variables will be part of the data object.
@@ -72,19 +70,20 @@ This will create two paragraphs one with the greet variable and the other with t
 In Svelte's case you can write the same thing above like so:
 
 ```js
-    <script>
-        let greet = "Hello World";
-        function upperString(string) {
-            return string.toUpperCase()
-        };
-    </script>
+<script>
+    let greet = "Hello World";
+    function upperString(string) {
+        return string.toUpperCase()
+    };
+</script>
 
-    <p>{greet}</p>
-    <p>{upperString(greet)}</p>
+<p>{greet}</p>
+<p>{upperString(greet)}</p>
 ```
 
-It's even simpler since you don't even need a top level tag like template or div and the double curly braces that belongs to **moustache.js** library isn't also necessary and has the main example that svelte gives on their website, it's even more obvious that svelte fufills my requirement. And whith this I choose Svelte.
+It's even simpler since you don't even need a top level tag like template or div and the double curly braces that belongs to <code>moustache.js</code> library isn't also necessary and has the main example that svelte gives on their <a href="https://svelte.dev/blog/write-less-code" target="blank"/>website</a>, it's even more obvious that svelte fufills my requirement. And with this I choose Svelte to create my portfolio app.
 
 ### The Second Version
 
-Starting with svelte is incredibly easy just install one of their templates, I use used their default one, and I used Typescript in this project which is also incredibly easy to do, just use the command **node scripts/setupTypescript.js** and you're good to go.
+Starting with svelte is incredibly easy just install one of their templates, I use used their default one, and I used Typescript in this project which is also incredibly easy to do, just use the command <code>node scripts/setupTypescript.js</code> and you're good to go.
+
