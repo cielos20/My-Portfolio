@@ -65,3 +65,10 @@ export default {
         </v-container>
     </div>
 </template>
+
+<style>
+    code {
+        background-color: transparent !important;
+        font-size: 105% !important;
+    }
+</style>

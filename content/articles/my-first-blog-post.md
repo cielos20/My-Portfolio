@@ -86,4 +86,4 @@ It's even simpler since you don't even need a top level tag like template or div
 ### The Second Version
 
 Starting with svelte is incredibly easy just install one of their templates, I use used their default one, and I used Typescript in this project which is also incredibly easy to do, just use the command <code>node scripts/setupTypescript.js</code> and you're good to go.
-
+I started with the idea of making

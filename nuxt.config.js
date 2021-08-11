@@ -54,7 +54,7 @@ export default {
   content: {
     markdown: {
       prism: {
-        theme: 'prism-themes/themes/prism-atom-dark.css'
+        theme: 'prism-themes/themes/prism-synthwave84.css'
       }
     }
   },
@@ -62,6 +62,7 @@ export default {
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
+    treeShake: true,
     theme: {
       dark: true,
       themes: {
