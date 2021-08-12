@@ -89,7 +89,7 @@ It's even simpler since you don't even need a top level tag like template or div
 
 Starting with svelte is incredibly easy just install one of their templates, I use used their default one, and I used Typescript in this project which is also incredibly easy to do, just use the command <code>node scripts/setupTypescript.js</code> and you're good to go.
 
- I started with the idea of making a code editor like portfolio and this is as far as I went with the [project](https://github.com/cielos20/Personal-Website "Svelte portfolio"). I spent about two weeks when I encountered a problem a big one in fact, **responsiveness**. While the concept sounded good on paper and looked good on the mockups I couldn't get make good sense of a mobile version. I looked at vs code and visual studio to see how they handled it, which they didn't because it's a desktop app not a mobile one and nowadays people tend to use their phones before the computer. But even so I tried to build it to the best of my abilities.
+I started with the idea of making a code editor like portfolio and this is as far as I went with the [project](https://github.com/cielos20/Personal-Website "Svelte portfolio"). I spent about two weeks when I encountered a problem a big one in fact, **responsiveness**. While the concept sounded good on paper and looked good on the mockups I couldn't get make good sense of a mobile version. I looked at vs code and visual studio to see how they handled it, which they didn't because it's a desktop app not a mobile one and nowadays people tend to use their phones before the computer. But even so I tried to build it to the best of my abilities.
 
 It didn't took very long until I encountered another dreadful problem, the **routing**. Unfortunately Svelte is still very young and it's routing framework svelteKit is, at the time of this post, in open beta. While it's previous iteration Sapper exists, it will be deprecated and replaced by it's newest self. So while my time with Svelte was  best experience I ever had with javascript in general, it had to come to a close.
 
@@ -99,10 +99,84 @@ With a new lesson learned I searched for a Vue SSG (Static Site Generator), whic
 
 To start a Nuxt project I used the following command:
 
- `npm init nuxt-app <your-app-name-here>`
+`npm init nuxt-app <your-app-name-here>`
 
 This is then followed by several questions about the type of project you want to make and the available technologies you want to use. As for me I choose to add TypeScript for the type safety, Vuetify for styling, Content to create the blog and Jest for testing.
 
-Both Vuetify and Content where new to me and luckily they were easy to learn. Let's start with Vuetify. The docs are pretty damn good and some compenents have some neat examples, like the v-app-bar and v-card. Theming in Vuetify is really easy too. If you're using nuxt, you could find the following lines of code in nuxt.config.js  
+Both Vuetify and Content where new to me and luckily they were easy to learn. Let's start with Vuetify. The docs are pretty damn good and some components have some neat examples, like the v-app-bar and v-card. Theming in Vuetify is really easy too. If you're using nuxt, you could find the following lines of code in nuxt.config.js
 
- 
+    {
+      primary: '#1976D2',
+      secondary: '#424242',
+      accent: '#82B1FF',
+      error: '#FF5252',
+      info: '#2196F3',
+      success: '#4CAF50',
+      warning: '#FFC107',
+    }
+
+This is the default color values of the theme, where the primary value will be apllied to the main parts of the components, like the background-color, the secondary one will represent the text color of the component and the accent will be the border-color. Now one could easily change it to two seperate themes like so:
+
+    theme: {
+    	themes: {
+        	light: {
+            	primary: '#fff',
+                secondary: '#000',
+                accent: '#090909',
+                error: '#FF5252',
+                info: '#2196F3',
+                success: '#4CAF50',
+                warning: '#FFC107',
+            },
+            dark: {
+            	primary: '#010101',
+                secondary: '#fff',
+                accent: '#ff0000',
+                error: '#FF5252',
+                info: '#2196F3',
+                success: '#4CAF50',
+                warning: '#FFC107',
+            }
+        }
+    }
+
+And voila you possess two different themes that can be swapped by a click of a button by accessing `$vuetify.theme.theme-name`
+
+One critique I have to make that's most likely due to my lack of experience, is the spacing. Most of the times I had to use a combination of padding and margin to give my desired spacing between components or adding a style to the html tag with my desired margin or padding. With this small exception I had a blast using vuetify. 
+
+Unto Content now. Nuxt Content is a module that allows nuxt to compile markdown into html with the power of nuxt's routing features it becomes really easy to create a blog. 
+
+To start using this module you either install it via npm or yarn or like me it came with the nuxt build. For the first option you type the following command
+
+`npm install @nuxt/content`
+
+and then proceed to nuxt.config.js and add the following lines of code to the modules section
+
+     {
+      modules: [
+        '@nuxt/content'
+      ],
+      content: {
+        // Options
+      }
+    }
+
+Following that we create one folder called content, this is the directory the module uses to fetch it's data. After that we create a  _slug.vue file under the pages directory, this serves has a html template for the markdown data we will provide. Inside the script data we add the following code
+
+     export default {
+        async asyncData({$content, params}) {
+            const articles = await $content('articles')
+            .only(['title', 'description', 'slug', 'createdAt'])
+            .fetch()
+        
+            return {articles}
+        }
+     }
+
+This snippet of code will grab the markdown files and it's data from the previously created content directory, and return it in a object that we can use to render on the _slug.vue file.
+
+Has an extra I also used forestry CMS to make it easier to edit my markdown files and format them has I wanted. This is but an overengineering of my part and I highly recommend using it.
+
+### The conclusion
+
+This is but a small summary of the trials and tribulations I had when making this project. But one I would gladly make again. Hope the readers enjoyed this rant of mine. And I'm still learning how to end something so until that time, I bid you all a farewell. 
