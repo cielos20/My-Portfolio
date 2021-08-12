@@ -99,79 +99,87 @@ With a new lesson learned I searched for a Vue SSG (Static Site Generator), whic
 
 To start a Nuxt project I used the following command:
 
-`npm init nuxt-app <your-app-name-here>`
+<code>npm init nuxt-app <your-app-name-here></code>
 
 This is then followed by several questions about the type of project you want to make and the available technologies you want to use. As for me I choose to add TypeScript for the type safety, Vuetify for styling, Content to create the blog and Jest for testing.
 
-Both Vuetify and Content where new to me and luckily they were easy to learn. Let's start with Vuetify. The docs are pretty damn good and some components have some neat examples, like the v-app-bar and v-card. Theming in Vuetify is really easy too. If you're using nuxt, you could find the following lines of code in nuxt.config.js
+Both Vuetify and Content where new to me and luckily they were easy to learn. Let's start with Vuetify. The docs are pretty damn good and some components have some neat examples, like the <code>v-app-bar</code> and <code>v-card</code>. Theming in Vuetify is really easy too. If you're using nuxt, you could find the following lines of code in nuxt.config.js
 
-    {
-      primary: '#1976D2',
-      secondary: '#424242',
-      accent: '#82B1FF',
-      error: '#FF5252',
-      info: '#2196F3',
-      success: '#4CAF50',
-      warning: '#FFC107',
-    }
+```js [nuxt.config.js]
+{
+    primary: '#1976D2',
+    secondary: '#424242',
+    accent: '#82B1FF',
+    error: '#FF5252',
+    info: '#2196F3',
+    success: '#4CAF50',
+    warning: '#FFC107',
+}
+```
 
 This is the default color values of the theme, where the primary value will be apllied to the main parts of the components, like the background-color, the secondary one will represent the text color of the component and the accent will be the border-color. Now one could easily change it to two seperate themes like so:
 
-    theme: {
-    	themes: {
-        	light: {
-            	primary: '#fff',
-                secondary: '#000',
-                accent: '#090909',
-                error: '#FF5252',
-                info: '#2196F3',
-                success: '#4CAF50',
-                warning: '#FFC107',
-            },
-            dark: {
-            	primary: '#010101',
-                secondary: '#fff',
-                accent: '#ff0000',
-                error: '#FF5252',
-                info: '#2196F3',
-                success: '#4CAF50',
-                warning: '#FFC107',
-            }
+```js [nuxt.config.js]
+theme: {
+    themes: {
+        light: {
+            primary: '#fff',
+            secondary: '#000',
+            accent: '#090909',
+            error: '#FF5252',
+            info: '#2196F3',
+            success: '#4CAF50',
+            warning: '#FFC107',
+        },
+        dark: {
+            primary: '#010101',
+            secondary: '#fff',
+            accent: '#ff0000',
+            error: '#FF5252',
+            info: '#2196F3',
+            success: '#4CAF50',
+            warning: '#FFC107',
         }
     }
+}
+```
 
-And voila you possess two different themes that can be swapped by a click of a button by accessing `$vuetify.theme.theme-name`
+And voila you possess two different themes that can be swapped by a click of a button by accessing <code>$vuetify.theme.theme-name</code>
 
 One critique I have to make that's most likely due to my lack of experience, is the spacing. Most of the times I had to use a combination of padding and margin to give my desired spacing between components or adding a style to the html tag with my desired margin or padding. With this small exception I had a blast using vuetify. 
 
 Unto Content now. Nuxt Content is a module that allows nuxt to compile markdown into html with the power of nuxt's routing features it becomes really easy to create a blog. 
 
-To start using this module you either install it via npm or yarn or like me it came with the nuxt build. For the first option you type the following command
+To start using this module you either install it via <code>npm</code> or <code>yarn</code> or like me it came with the nuxt build. For the first option you type the following command
 
 `npm install @nuxt/content`
 
 and then proceed to nuxt.config.js and add the following lines of code to the modules section
 
-     {
-      modules: [
-        '@nuxt/content'
-      ],
-      content: {
-        // Options
-      }
+```js [nuxt.config.js]
+{
+    modules: [
+    '@nuxt/content'
+    ],
+    content: {
+    // Options
     }
+}
+```
 
 Following that we create one folder called content, this is the directory the module uses to fetch it's data. After that we create a  _slug.vue file under the pages directory, this serves has a html template for the markdown data we will provide. Inside the script data we add the following code
 
-     export default {
-        async asyncData({$content, params}) {
-            const articles = await $content('articles')
-            .only(['title', 'description', 'slug', 'createdAt'])
-            .fetch()
-        
-            return {articles}
-        }
-     }
+```js [_slug.vue]
+export default {
+    async asyncData({$content, params}) {
+        const articles = await $content('articles')
+        .only(['title', 'description', 'slug', 'createdAt'])
+        .fetch()
+    
+        return {articles}
+    }
+}
+```
 
 This snippet of code will grab the markdown files and it's data from the previously created content directory, and return it in a object that we can use to render on the _slug.vue file.
 
