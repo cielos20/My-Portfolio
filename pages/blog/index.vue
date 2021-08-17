@@ -9,8 +9,6 @@
                     <h1 class="text-left text-h3 font-weight-medium">The Blog</h1>
                 </v-col>
             </v-row>
-            <!-- Make some tabs to filter the content maybe or some tags -->
-            <!-- Add storybook or strapi to make a db -->
             <v-row justify="center" class="mt-16 px-sm-16 px-2">
                 <v-col v-for="article of articles" :key="article.slug" cols="12" sm="6" md="4">
                     <v-card elevation="6" class="px-5 py-5">
@@ -30,8 +28,6 @@
 </template>
 
 <script>
-/* Add a function that displays content based on a filtered category tag */
-/* Add a db to store my posts */
 export default {
     async asyncData({$content, params}) {
         const articles = await $content('articles')

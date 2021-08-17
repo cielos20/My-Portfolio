@@ -20,6 +20,9 @@
                         <v-icon class="ml-sm-n16 pb-3 pt-n3 pr-2" color="text" large>mdi-github</v-icon>
                         <p class="text-h6 text--text">cielos20</p>
                     </v-row>
+                    <v-row justify="center" class="pb-5 pb-sm-0">
+                        <p class="text-h6 text--text">Thank you, Freepik for the wonderfull art</p>
+                    </v-row>
                 </v-col>
             </v-row>
         </v-container>

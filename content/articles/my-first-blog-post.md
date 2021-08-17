@@ -105,7 +105,7 @@ This is then followed by several questions about the type of project you want to
 
 Both Vuetify and Content where new to me and luckily they were easy to learn. Let's start with Vuetify. The docs are pretty damn good and some components have some neat examples, like the <code>v-app-bar</code> and <code>v-card</code>. Theming in Vuetify is really easy too. If you're using nuxt, you could find the following lines of code in nuxt.config.js
 
-```js [nuxt.config.js]
+```js
 {
     primary: '#1976D2',
     secondary: '#424242',
@@ -119,7 +119,7 @@ Both Vuetify and Content where new to me and luckily they were easy to learn. Le
 
 This is the default color values of the theme, where the primary value will be apllied to the main parts of the components, like the background-color, the secondary one will represent the text color of the component and the accent will be the border-color. Now one could easily change it to two seperate themes like so:
 
-```js [nuxt.config.js]
+```js
 theme: {
     themes: {
         light: {
@@ -152,11 +152,11 @@ Unto Content now. Nuxt Content is a module that allows nuxt to compile markdown 
 
 To start using this module you either install it via <code>npm</code> or <code>yarn</code> or like me it came with the nuxt build. For the first option you type the following command
 
-`npm install @nuxt/content`
+<code>npm install @nuxt/content</code>
 
-and then proceed to nuxt.config.js and add the following lines of code to the modules section
+and then proceed to <code>nuxt.config.js</code> and add the following lines of code to the modules section
 
-```js [nuxt.config.js]
+```js
 {
     modules: [
     '@nuxt/content'
@@ -167,9 +167,9 @@ and then proceed to nuxt.config.js and add the following lines of code to the mo
 }
 ```
 
-Following that we create one folder called content, this is the directory the module uses to fetch it's data. After that we create a  _slug.vue file under the pages directory, this serves has a html template for the markdown data we will provide. Inside the script data we add the following code
+Following that we create one folder called content, this is the directory the module uses to fetch it's data. After that we create a  <code>_slug.vue</code> file under the pages directory, this serves has a html template for the markdown data we will provide. Inside the script data we add the following code
 
-```js [_slug.vue]
+```js
 export default {
     async asyncData({$content, params}) {
         const articles = await $content('articles')
@@ -181,7 +181,7 @@ export default {
 }
 ```
 
-This snippet of code will grab the markdown files and it's data from the previously created content directory, and return it in a object that we can use to render on the _slug.vue file.
+This snippet of code will grab the markdown files and it's data from the previously created content directory, and return it in a object that we can use to render on the <code>_slug.vue</code> file.
 
 Has an extra I also used forestry CMS to make it easier to edit my markdown files and format them has I wanted. This is but an overengineering of my part and I highly recommend using it.
 

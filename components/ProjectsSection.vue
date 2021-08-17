@@ -49,11 +49,6 @@
                  link: '#'
              },
              {
-                 img: 'https://cdn.vuetifyjs.com/images/cards/forest-art.jpg',
-                 title: "Vonchronoshaus a website about a dog breeder and it's puppies",
-                 link: '#'
-             },
-             {
                  img: 'soccer.jpg',
                  title: "Florista de São Marcos a woocommerce flowershop",
                  link: '#'

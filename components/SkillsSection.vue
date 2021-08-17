@@ -39,7 +39,7 @@
                  subtitleOne: "Languages I speak:",
                  subtitleTextOne: 'PHP, Python, SQL',
                  subtitleTwo: 'Server tech I use:',
-                 subtitleTextTwo: 'NodeJS, Express, Deno, Django, Flask, Postgres, Firebase, MongoDB',
+                 subtitleTextTwo: 'NodeJS, Express, Deno, Laravel, Flask, Postgres, Firebase, MongoDB',
              },
              {
                  icon: 'mdi-pencil-ruler',
