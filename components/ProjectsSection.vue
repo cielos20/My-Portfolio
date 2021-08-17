@@ -10,7 +10,7 @@
               <v-img :src="item.img" height="320px"></v-img>
                   <v-card-title class="text-break">{{item.title}}</v-card-title>
                   <v-col cols="12">
-                    <v-btn outlined color="white" elevation="1" class="ml-8">See the website</v-btn>
+                    <v-btn outlined color="white" elevation="1" class="ml-8" to="{{item.link}}">See the website</v-btn>
                   </v-col> 
             </v-card>
         </div>
@@ -44,14 +44,14 @@
      data: () => ({
          items: [
              {
-                 img: 'pc-bro.jpg',
+                 img: 'absolutauge.png',
                  title: "Absolutauge's newest portfolio website in wordpress",
-                 link: '#'
+                 link: 'https://absolutauge.vonchronoshaus.com/',
              },
              {
-                 img: 'soccer.jpg',
-                 title: "Florista de São Marcos a woocommerce flowershop",
-                 link: '#'
+                 img: 'undraw-coming-soon.svg',
+                 title: "Florista de São Marcos a woocommerce flowershop. Coming soon...",
+                 link: '#',
              },
          ],
          windowSize: {

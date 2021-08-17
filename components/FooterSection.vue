@@ -21,7 +21,7 @@
                         <p class="text-h6 text--text">cielos20</p>
                     </v-row>
                     <v-row justify="center" class="pb-5 pb-sm-0">
-                        <p class="text-h6 text--text">Thank you, Freepik for the wonderfull art</p>
+                        <p class="text-h6 text--text">Thank you, Storyset for the wonderful art.<br>Click the <a href="https://storyset.com/" class="text--text">link</a> to see more awesome ilustrations.</p>
                     </v-row>
                 </v-col>
             </v-row>
