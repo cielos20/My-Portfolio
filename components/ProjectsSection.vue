@@ -10,7 +10,7 @@
               <v-img :src="item.img" height="320px"></v-img>
                   <v-card-title class="text-break">{{item.title}}</v-card-title>
                   <v-col cols="12">
-                    <v-btn outlined color="white" elevation="1" class="ml-8" to="{{item.link}}">See the website</v-btn>
+                    <v-btn outlined color="white" elevation="1" class="ml-8" :href="item.link">See the website</v-btn>
                   </v-col> 
             </v-card>
         </div>
@@ -25,7 +25,10 @@
                       <p class="text-h3 text-lg-h4 pl-8 pr-8">{{item.title}}</p>
                       </v-col>
                       <v-col cols="12">
-                        <v-btn outlined color="white" elevation="1" class="ml-8">See the website</v-btn>
+                        <v-btn outlined color="white" elevation="1" class="ml-8 mb-8 mb-sm-0">
+                          <span v-if="item.link === '#'">Coming soon</span>
+                          <span v-else>See the website</span>
+                        </v-btn>
                       </v-col>
                     </v-row>
                   </div>
@@ -50,7 +53,7 @@
              },
              {
                  img: 'undraw-coming-soon.svg',
-                 title: "Florista de São Marcos a woocommerce flowershop. Coming soon...",
+                 title: "Florista de São Marcos a laravel flowershop.",
                  link: '#',
              },
          ],
