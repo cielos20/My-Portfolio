@@ -7,23 +7,23 @@
             <v-row justify="center" class="mt-16">
                 <v-card elevation="6" height="650px" width="1000px">
                     <ValidationObserver ref="observer" v-slot="{handleSubmit}">
-                        <v-form @submit.prevent="handleSubmit(onSubmit)">
+                        <v-form id="my-form" @submit.prevent="handleSubmit(onSubmit)">
                             <v-row justify="center" class="mt-10">
                                 <v-col cols="5">
                                     <ValidationProvider v-slot="{ errors, valid }" name="Name" rules="required|min:5|max:15|alpha_spaces">
-                                        <v-text-field v-model="name" :error-messages="errors" :success="valid" type="text" label="Name" counter="15" outlined></v-text-field>
+                                        <v-text-field v-model="name" name="name"  :error-messages="errors" :success="valid" type="text" label="Name" counter="15" outlined></v-text-field>
                                     </ValidationProvider>
                                 </v-col>
                                 <v-col cols="5">
                                     <ValidationProvider v-slot="{errors, valid}" name="Email" rules="required|email|max:30">
-                                        <v-text-field v-model="email" :error-messages="errors" :success="valid" type="text" label="Email" counter="30" outlined></v-text-field>
+                                        <v-text-field v-model="email" name="email" :error-messages="errors" :success="valid" type="text" label="Email" counter="30" outlined></v-text-field>
                                     </ValidationProvider>
                                 </v-col>
                             </v-row>
                             <v-row justify="center">
                                 <v-col cols="10">
                                     <ValidationProvider v-slot="{errors, valid}" name="Message" rules="required|min:20|max:300">
-                                        <v-textarea v-model="message" :error-messages="errors" :success="valid" label="Message" counter="300" no-resize height="300px" outlined clearable clear-icon="mdi-close"></v-textarea>
+                                        <v-textarea v-model="message" name="message" :error-messages="errors" :success="valid" label="Message" counter="300" no-resize height="300px" outlined clearable clear-icon="mdi-close"></v-textarea>
                                     </ValidationProvider>
                                 </v-col>
                             </v-row>
@@ -31,7 +31,6 @@
                                 <v-btn type="submit" outlined>Submit</v-btn>
                             </v-row>
                             <v-row justify="center" class="mt-6">
-                                <!-- Need to figure out why it only happens once -->
                                 <v-alert v-if="isValid === true" type="success" dismissible outlined>Form submitted</v-alert>
                             </v-row>
                         </v-form>
@@ -45,6 +44,7 @@
 <script>
     import {extend, ValidationProvider, ValidationObserver} from 'vee-validate'
     import {alpha_spaces, email, required} from 'vee-validate/dist/rules'
+    import emailjs from 'emailjs-com';
 
     
     export default {
@@ -61,18 +61,25 @@
         methods: {
             onSubmit() {
                 this.$refs.observer.validate().then(success => {
-                    if(!success) {
-                        return 'Form could not be submited'
+                    if(success) {
+                        this.sendEmail();
                     }
-                    else {
-                        this.name = this.email = this.message = '';
-                        this.$nextTick(() => {
-                            this.$refs.observer.reset();
-                        });
-                        this.isValid = true
-                    }
-                })
-            }
+                });
+            },
+            sendEmail() {
+                try {
+                    emailjs.sendForm(process.env.SERVICE_ID, process.env.TEMPLATE_ID, '#my-form',
+                    process.env.USER_ID, {
+                        name: this.name,
+                        email: this.email,
+                        message: this.message
+                    })
+                } catch(error) {
+                    console.log({error})
+                }
+                this.name = this.email = this.message = '';
+                this.isValid = true;
+            },
         },
     }
     
