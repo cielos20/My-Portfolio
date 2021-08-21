@@ -32,6 +32,7 @@
                             </v-row>
                             <v-row justify="center" class="mt-6">
                                 <v-alert v-if="isValid === true" type="success" dismissible outlined>Form submitted</v-alert>
+                                <v-alert v-if="isError === true" type="error" dismissible outlined>There was an error</v-alert>
                             </v-row>
                         </v-form>
                     </ValidationObserver>
@@ -56,7 +57,8 @@
             name: '',
             message: '',
             email: '',
-            isValid: false
+            isValid: false,
+            isError: false
         }),
         methods: {
             onSubmit() {
@@ -76,6 +78,7 @@
                     })
                 } catch(error) {
                     console.log(error);
+                    this.isError = true;
                 }
                 this.name = this.email = this.message = '';
                 this.isValid = true;
