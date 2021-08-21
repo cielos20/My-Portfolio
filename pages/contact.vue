@@ -68,14 +68,14 @@
             },
             sendEmail() {
                 try {
-                    emailjs.sendForm(process.env.SERVICE_ID, process.env.TEMPLATE_ID, '#my-form',
-                    process.env.USER_ID, {
+                    emailjs.sendForm(this.$config.service_id, this.$config.template_id, '#my-form',
+                    this.$config.user_id, {
                         name: this.name,
                         email: this.email,
                         message: this.message
                     })
                 } catch(error) {
-                    console.log({error})
+                    console.log(error);
                 }
                 this.name = this.email = this.message = '';
                 this.isValid = true;

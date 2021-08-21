@@ -45,6 +45,11 @@ export default {
     '@nuxtjs/pwa',
     '@nuxt/content',
   ],
+  publicRuntimeConfig: {
+    service_id: process.env.SERVICE_ID,
+    user_id: process.env.USER_ID,
+    template_id: process.env.TEMPLATE_ID
+  },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
